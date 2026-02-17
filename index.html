@@ -1,199 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Service Disconnected</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan to Pay via GCash</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #e6e6e6;
+  font-family: Arial, sans-serif;
+}
 
-    .container {
-      max-width: 450px;
-      margin: 20px auto;
-      background-color: #ffffff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+.container {
+  max-width: 420px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  text-align: center;
+}
 
-    .logo img {
-      max-width: 150px;
-      margin-bottom: 5px;
-    }
+h2 {
+  color: #0d5cc1;
+  font-size: 20px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
 
-    h1 {
-      color: #b30000;
-      font-size: 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-    }
+.qr-box img {
+  width: 230px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+}
 
-    .notice-text {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #333;
-      margin: 10px 0;
-    }
+.info {
+  font-size: 15px;
+  margin: 8px 0;
+}
 
-    .notice-text strong {
-      font-size: 15px;
-      color: #b30000;
-    }
+.gcash-number {
+  color: #0d5cc1;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .scan-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #007aff;
-      margin: 20px 0 8px;
-      text-transform: uppercase;
-    }
+.gcash-number:hover {
+  text-decoration: underline;
+}
 
-    .qr-code img {
-      width: 200px;
-      max-width: 100%;
-      border-radius: 12px;
-      margin: 10px auto;
-      display: block;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
+#copy-msg {
+  font-size: 12px;
+  color: green;
+  display: none;
+  margin-top: 5px;
+}
 
-    .gcash-number {
-      font-weight: bold;
-      color: #007aff;
-      cursor: pointer;
-      font-size: 16px;
-    }
+.notice {
+  font-size: 13px;
+  color: #444;
+  margin: 15px 0;
+}
 
-    .gcash-number:hover {
-      text-decoration: underline;
-    }
+.btn {
+  display: block;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.3s;
+}
 
-    #copy-msg {
-      font-size: 12px;
-      color: green;
-      margin-top: 5px;
-      display: none;
-    }
+.messenger {
+  background: #1877f2;
+}
 
-    .footer {
-      font-size: 13px;
-      color: #555;
-      margin-top: 10px;
-    }
+.messenger:hover {
+  background: #0f5ec4;
+}
 
-    .messenger-btn {
-      display: block;
-      padding: 12px;
-      margin: 12px 0 0;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      background: #0084ff;
-    }
+.call {
+  background: #2e8b57;
+}
 
-    .contact-btn {
-      display: block;
-      padding: 12px;
-      margin: 12px 0 0;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      background: #28a745;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      color: #333;
-      font-size: 14px;
-      background: #f2f2f2;
-    }
-  </style>
+.call:hover {
+  background: #1f6b3f;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- LOGO (URL BASED) -->
-    <div class="logo">
-      <img src="https://i.imgur.com/twXpJNO.gif" alt="Company Logo">
-    </div>
+  <h2>📲 SCAN TO PAY VIA GCASH</h2>
 
-    <h1>SERVICE DISCONNECTED</h1>
-
-    <p class="notice-text">
-      <strong>Hi Valued Client,</strong><br>
-      Your internet service has been temporarily disabled due to unsettled payment on your account.
-      To restore your connection, kindly settle your balance at the soonest possible time.
-    </p>
-
-    <p class="scan-text">📲 Scan to Pay via GCash</p>
-
-    <!-- QR CODE (URL BASED) -->
-    <div class="qr-code">
-      <img src="https://i.imgur.com/OEKxpqV.png" alt="GCash QR Code">
-    </div>
-
-    <p>
-      GCash Name: <strong>MA***N M.</strong><br/>
-      GCash Number:
-      <span class="gcash-number" onclick="copyGCash()">
-        09665084666
-      </span>
-    </p>
-
-    <div id="copy-msg">✔ Number copied</div>
-
-    <div class="footer">
-      If you have already made a payment, kindly contact us to confirm and reconnect your service.
-      Thank you!
-    </div>
-
-    <!-- MESSENGER BUTTON -->
-    <a class="messenger-btn"
-       href="https://www.facebook.com/mtechfiberservices"
-       target="_blank">
-      💬 Chat us on Messenger
-    </a>
-
-    <!-- CALL BUTTON -->
-    <a class="contact-btn" href="tel:+639241030898">
-      📞 Call us: 0924-103-0898
-    </a>
-
+  <div class="qr-box">
+    <!-- PALITAN MO ITO NG QR IMAGE LINK MO -->
+    <img src="https://i.imgur.com/OEKxpqV.png" alt="GCash QR Code">
   </div>
 
-  <footer>
-    Powered by MTECH FIBER © 2022
-  </footer>
+  <div class="info">
+    GCash Name: <strong>MA***N M.</strong>
+  </div>
 
-  <script>
-    function copyGCash() {
-      const number = "09665084666";
-      navigator.clipboard.writeText(number);
+  <div class="info">
+    GCash Number:
+    <span class="gcash-number" onclick="copyNumber()">
+      09665084666
+    </span>
+  </div>
 
-      const msg = document.getElementById("copy-msg");
-      msg.style.display = "block";
+  <div id="copy-msg">✔ Number copied</div>
 
-      setTimeout(() => {
-        msg.style.display = "none";
-      }, 2000);
-    }
-  </script>
+  <div class="notice">
+    If you have already made a payment, kindly contact us to confirm and reconnect your service.
+  </div>
+
+  <a class="btn messenger"
+     href="https://www.facebook.com/mtechfiberservices"
+     target="_blank">
+     💬 Chat us on Messenger
+  </a>
+
+  <a class="btn call" href="tel:+639241030898">
+     📞 Call us: 0924-103-0898
+  </a>
+
+</div>
+
+<script>
+function copyNumber() {
+  const number = "09665084666";
+  navigator.clipboard.writeText(number);
+
+  const msg = document.getElementById("copy-msg");
+  msg.style.display = "block";
+
+  setTimeout(() => {
+    msg.style.display = "none";
+  }, 2000);
+}
+</script>
 
 </body>
 </html>
