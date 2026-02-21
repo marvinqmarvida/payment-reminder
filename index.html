@@ -145,7 +145,7 @@ body {
 
 .number-box {
   background: rgba(255,255,255,0.08);
-  padding: 8px;
+  padding: 10px;
   border-radius: 6px;
   margin-top: 8px;
 }
@@ -153,7 +153,7 @@ body {
 .copy-btn {
   background: #22c55e;
   border: none;
-  padding: 8px;
+  padding: 10px;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
@@ -212,12 +212,10 @@ body {
     <button class="maya-btn" onclick="openQR('maya')">💳 Maya</button>
   </div>
 
-  <!-- UPDATED CONFIRM BUTTON -->
   <div class="confirm-btn" onclick="openConfirm()">✔ Confirm Payment</div>
-
   <div class="contact-btn" onclick="openContact()">💬 Contact Support</div>
 
-  <div class="footer">© 2026 MTECHFIBER | Secure Access Portal</div>
+  <div class="footer">© 2026 MTECH Fiber</div>
 
 </div>
 
@@ -230,11 +228,27 @@ body {
 
     <div class="qr-info">
       <div>MA•••N M.</div>
-      <div class="number-box">0966-508-4666</div>
 
-      <button id="copyBtn" class="copy-btn" onclick="copyNumber()">COPY NUMBER</button>
+      <div class="number-box">
+        0966-508-4666
+      </div>
+
+      <button id="copyBtn" class="copy-btn" onclick="copyNumber()">
+        COPY NUMBER
+      </button>
+
       <div id="copiedMsg" class="copied-msg">Copied!</div>
     </div>
+
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div id="confirmModal" class="modal" onclick="closeAll()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close-btn" onclick="closeAll()">✖</span>
+    <h3>Payment Confirmation</h3>
+    <img src="https://i.imgur.com/qF4SveK.png">
   </div>
 </div>
 
@@ -255,7 +269,7 @@ body {
   <div class="modal-content" onclick="event.stopPropagation()">
     <span class="close-btn" onclick="closeAll()">✖</span>
     <h3>Chat via Messenger</h3>
-    <img src="https://i.imgur.com/OZnjpUv.gif">
+    <img src="https://i.imgur.com/dwFeZGq.png">
   </div>
 </div>
 
@@ -279,7 +293,7 @@ function openQR(type) {
 }
 
 function openConfirm() {
-  window.location.href = "https://mtechfiberph.com/";
+  document.getElementById("confirmModal").style.display = "flex";
 }
 
 function openContact() {
@@ -297,7 +311,7 @@ function copyNumber() {
   const btn = document.getElementById("copyBtn");
   const msg = document.getElementById("copiedMsg");
 
-  btn.innerText = "COPIED ✓";
+  btn.innerText = "✓ COPIED";
   btn.style.background = "#16a34a";
   msg.style.opacity = "1";
 
@@ -310,6 +324,7 @@ function copyNumber() {
 
 function closeAll() {
   document.getElementById("qrModal").style.display = "none";
+  document.getElementById("confirmModal").style.display = "none";
   document.getElementById("contactModal").style.display = "none";
   document.getElementById("messengerModal").style.display = "none";
 }
