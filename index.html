@@ -134,7 +134,6 @@ body {
   cursor: pointer;
 }
 
-/* QR INFO */
 .qr-info {
   margin-top: 15px;
   font-size: 14px;
@@ -285,20 +284,39 @@ function openContact() {
 
 function copyNumber() {
   const number = "09665084666";
-  navigator.clipboard.writeText(number);
-
   const btn = document.getElementById("copyBtn");
   const msg = document.getElementById("copiedMsg");
 
-  btn.innerText = "✓ COPIED";
-  btn.style.background = "#16a34a";
-  msg.style.opacity = "1";
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(number).then(showCopied).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
 
-  setTimeout(() => {
-    btn.innerText = "COPY NUMBER";
-    btn.style.background = "#22c55e";
-    msg.style.opacity = "0";
-  }, 1500);
+  function fallbackCopy() {
+    const textarea = document.createElement("textarea");
+    textarea.value = number;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+    showCopied();
+  }
+
+  function showCopied() {
+    btn.innerText = "✓ COPIED";
+    btn.style.background = "#16a34a";
+    msg.style.opacity = "1";
+
+    setTimeout(() => {
+      btn.innerText = "COPY NUMBER";
+      btn.style.background = "#22c55e";
+      msg.style.opacity = "0";
+    }, 1500);
+  }
 }
 
 document.getElementById("smsBtn").addEventListener("click", function() {
@@ -318,4 +336,3 @@ function closeAll() {
 
 </body>
 </html>
-
